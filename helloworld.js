@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express();
-// var response = require('./response.js');
+var response = require('./response.js');
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-// app.get('/user', function (req, res) {
-//   res.send(new User().userName);
-// });
+app.get('/user', function (req, res) {
+  res.send(new User().userName);
+});
 
 var server = app.listen(1337, function () {
 
