@@ -1,6 +1,20 @@
-var http = require('http');
-http.createServer(function (req, res) {
-	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.end('New Hello World!\n');
-}).listen(1337, '0.0.0.0');
-console.log('Server running at http://0.0.0.0:1337/');
+var express = require('express');
+var app = express();
+// var response = require('./response.js');
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+// app.get('/user', function (req, res) {
+//   res.send(new User().userName);
+// });
+
+var server = app.listen(1337, function () {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+
+});
